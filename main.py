@@ -1,7 +1,7 @@
 class Motor:
-    def __init__(self, registro):
-        self.numeroCilindros = 1
-        self.tipo = "gasolina"
+    def __init__(self,cilindro, tipo,registro):
+        self.numeroCilindros = cilindro
+        self.tipo = tipo
         self.registro = registro
 
     def cambiarRegistro(self, registro):
@@ -13,9 +13,9 @@ class Motor:
 
 
 class Asiento:
-    def __init__(self,registro):
-        self.color = "Azul"
-        self.precio = 0
+    def __init__(self,color,precio,registro):
+        self.color = color
+        self.precio = precio
         self.registro =registro
 
     def cambiarColor(self, color):
@@ -26,13 +26,13 @@ class Asiento:
 
 class Auto:
     cantidadCreados = 0
-    def __init__(self):
-        self.modelo = "px"
-        self.precio = 10**8
-        self.asientos = [Asiento(8881)]
-        self.marca = "WMB"
-        self.motor = Motor(8881)
-        self.registro = 8881
+    def __init__(self,modelo,precio,lista,marca,motor,registro):
+        self.modelo = modelo
+        self.precio = precio
+        self.asientos = lista
+        self.marca = marca
+        self.motor = motor
+        self.registro = registro
         Auto.cantidadCreados += 1
 
     def cantidadAsientos(self):
@@ -50,15 +50,3 @@ class Auto:
         if all(lstregistros):
             return "Auto original"
         return "Las piezas no son originales"
-
-
-# if __name__ == "__main__":
-#     carro = Auto()
-#     print(carro.cantidadAsientos())
-#     print(carro.verificarIntegridad())
-#     carro.asientos.append("had")
-#     carro.asientos.append(Asiento(888))
-#     carro.asientos[0].cambiarColor("negro")
-#     print(carro.cantidadAsientos())
-#     print(carro.verificarIntegridad())
-#     print(carro.asientos[0].color)
